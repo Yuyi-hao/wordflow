@@ -13,34 +13,21 @@
             <div class="logo nav_item">
                 WORD FLOW
             </div>
-            <li class="nav_item"><a href="https://github.com/yuyi-hao/wordflow">Github link</a></li>
-            <li class="nav_item">about</li>
+            <div class="nav_links">
+                <li class="nav_item"><a href="https://github.com/yuyi-hao/wordflow">Github link</a></li>
+                <li class="nav_item">about</li>
+            </div>
         </ul>
     </nav>
 
 
     <div class="main_textfield">
-        <input type="text" id="autocomplete-input">
+        <img id="display_image" src="static/images/resting.gif">
+        <input type="text" id="autocomplete-input" maxlength="50" minlength="30" placeholder="Start Typing...">
         <ul id="autocomplete-results"></ul>
     </div>    
 
-    <script>
-        const input = document.getElementById('autocomplete-input');
-        const results = document.getElementById('autocomplete-results');
-    
-        input.addEventListener('input', () => {
-            const prefix = input.value;
-            fetch(`/autocomplete?prefix=${prefix}`)
-                .then(response => response.json())
-                .then(data => {
-                    results.innerHTML = '';  // Clear previous results
-                    data.suggestions.forEach(suggestion => {
-                        const li = document.createElement('li');
-                        li.textContent = suggestion;
-                        results.appendChild(li);
-                    });
-                });
-        });
+    <script src="{{ url_for('static', filename='js/app.js') }}">
     </script>
     
 </body>

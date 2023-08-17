@@ -1,60 +1,110 @@
+/*
+ 9592fc
+ fc92f8
+ ca92fc
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap');
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body{
     height: 100vh;
-    display: grid;
-    place-items: center;
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    background-color: #ca92fc;
+    flex-direction: column;
 }
-
-li{
-    list-style: none;
-}
-
 
 .main_nav{
-    background-color: aquamarine;
     width: 100%;
     height: fit-content;
-    display: absolute;
-    position: fixed;
-    top: 0;
+    background-color: #9592fc;
+    position: sticky;
+    border-radius: .5rem;
+    padding: 1rem;
 }
 
 .nav_items{
     display: flex;
-    flex-direction: row;
-}
-
-.nav_item{
-    width: fit-content;
-    padding: .3rem .5rem;
-    margin: .3em .5em;
-    border-radius: .1rem;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
 }
 
-.logo{
-    font-weight: bold;
-    font-size: 24px;
-    margin-right: auto;
+.nav_links{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-/* .main_textfield{
-    border: 1px solid black;    
-} */
+li{
+    list-style-type: none;
+    margin: .5rem 1rem;
+}
 
-input{
-    font-size: 1rem;
-    padding: .3rem;
-    outline: none;
+a{
+    background-color: #fc92f8;
+    padding: .3rem .6rem;
+    font-size: bold;
+    border-radius: .3rem;
+    text-decoration: none;
+}
+
+.main_textfield{
+    border: 2px solid brown;
     margin: auto;
-    border: none;   
-    border-radius: .3em;
+    align-self: center;
+    padding: 3rem;
+    border-radius: 1rem;
+    background-color: #fc92a9;
+}
+
+#autocomplete-input{
+    padding: .5rem;
+    background-color: #520a68;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5% 5% 0 0;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 500;
+    font-size: 1.4rem;
+    width: 100%;
+}
+
+#autocomplete-input:focus{
+    border: 2px solid greenyellow;
+}
+
+.main_textfield ul{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: aquamarine;
+    border-radius: 0 0 5% 5%;
+    justify-items: center;
+}
+
+
+.main_textfield ul li{
+    margin: 4px 8px;
+    /* border-bottom: 1px solid black; */
+    color: white;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: .3rem .6rem;
+    background-color: #520a68;
+    border-radius: 8px;
+}
+
+.main_textfield img{
+    display: block;
+    width: 300px;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+
 }
