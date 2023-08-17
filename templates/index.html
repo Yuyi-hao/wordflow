@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Auto Complete</title>
+</head>
+<body>
+    <nav class="main_nav">
+        <ul class="nav_items">
+            <div class="logo nav_item">
+                WORD FLOW
+            </div>
+            <li class="nav_item"><a href="https://github.com/yuyi-hao/wordflow">Github link</a></li>
+            <li class="nav_item">about</li>
+        </ul>
+    </nav>
+
+
+    <div class="main_textfield">
+        <input type="text" id="autocomplete-input">
+        <ul id="autocomplete-results"></ul>
+    </div>    
+
+    <script>
+        const input = document.getElementById('autocomplete-input');
+        const results = document.getElementById('autocomplete-results');
+    
+        input.addEventListener('input', () => {
+            const prefix = input.value;
+            fetch(`/autocomplete?prefix=${prefix}`)
+                .then(response => response.json())
+                .then(data => {
+                    results.innerHTML = '';  // Clear previous results
+                    data.suggestions.forEach(suggestion => {
+                        const li = document.createElement('li');
+                        li.textContent = suggestion;
+                        results.appendChild(li);
+                    });
+                });
+        });
+    </script>
+    
+</body>
+</html>
