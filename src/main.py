@@ -17,11 +17,12 @@ def insert_text(root, text, idx):
     
     insert_text(root.children[text[idx]], text, idx+1)
 
-def print_tree(root):
-    print(f'    Node_{root.id}')
-    for i in root.children:
-        print(f'    Node_{root.id} -> Node_{root.children[i].id} [label="{i}"]')
-        print_tree(root.children[i])
+def print_tree(filename, root):
+    with open(filename, 'a') as file:
+        file.write(f'    Node_{root.id}\n')
+        for i in root.children:
+            file.write(f'    Node_{root.id} -> Node_{root.children[i].id} [label="{i}"]\n')
+            print_tree(filename, root.children[i])
 
 
 def find_prefix_root(root, prefix, idx):
@@ -42,10 +43,12 @@ def print_autocomplete(root, suggestions, prefix=''):
             print_autocomplete(child, suggestions, prefix + char,)
 
 
-def dump_tree_dot(root):
-    print('digraph True{')
-    print_tree(root)
-    print('}')
+def dump_tree_dot(filename, root):
+    with open(filename, 'w') as file:
+        file.write('digraph True{\n')
+    print_tree(filename, root)
+    with open(filename, 'a') as file:
+        file.write('}\n')
 
 def remove_text(root, text, idx):
     if root is None:

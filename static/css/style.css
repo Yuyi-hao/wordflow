@@ -5,6 +5,7 @@
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -107,4 +108,8 @@ a{
     margin-bottom: 1rem;
     border-radius: .3rem;
 
+}
+
+.logo_word{
+    font-family: 'Sriracha', cursive;
 }

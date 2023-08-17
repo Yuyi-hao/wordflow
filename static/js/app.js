@@ -1,6 +1,8 @@
 const input = document.getElementById('autocomplete-input');
 const results = document.getElementById('autocomplete-results');
 const image = document.getElementById('display_image');
+let timeout; 
+
 
 input.addEventListener('input', () => {
     const prefix = input.value;
@@ -15,8 +17,7 @@ input.addEventListener('input', () => {
                 results.appendChild(li);
             });
         });
-});
-
-input.addEventListener('none', () =>{
-    image.src = "static/images/resting.gif";
+    timeout = setTimeout(() => {
+        image.src = "static/images/resting.gif";
+    }, 5000);
 });
